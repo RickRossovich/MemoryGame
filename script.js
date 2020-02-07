@@ -77,4 +77,4 @@ function clicked(event) {
     event.target.parentNode.classList.add(`flipped`);
   } if ()
 
-}
+
