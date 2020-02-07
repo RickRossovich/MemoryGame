@@ -1,0 +1,96 @@
+body {
+  font-family: "Pacifico", cursive;
+  background-image: url("/assets/catbackground1.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.page-title {
+  font-family: "Pacifico", cursive;
+  text-align: center;
+  font-size: 50px;
+}
+.game-container {
+  position: relative;
+}
+.countdown-flip-container {
+  width: 400px;
+  border: 1px solid black;
+  position: absolute;
+  top: -10px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 40px;
+}
+.game-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.card-container {
+  width: 850px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.card {
+  background-color: rosybrown;
+  height: 100px;
+  width: 100px;
+  border: 1px solid black;
+  border-radius: 5px;
+  display: flex;
+  margin: 5px;
+}
+
+@media screen and (min-width: 768px) {
+  body {
+    background-image: url("/assets/catbackground2.jpg");
+    background-blend-mode: overlay;
+    background-repeat: no-repeat;
+    background-size: 100% 150vh;
+  }
+
+  .page-title {
+    font-family: "Pacifico", cursive;
+    text-align: center;
+    font-size: 100px;
+    color: white;
+  }
+  .game-container {
+    position: relative;
+  }
+  .countdown-flip-container {
+    width: 600px;
+    border: 1px solid white;
+    position: absolute;
+    top: -75px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 50px;
+    color: white;
+  }
+  .game-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  .card-container {
+    width: 700px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+  .card {
+    background-color: rosybrown;
+    height: 150px;
+    width: 150px;
+    border: 1px solid black;
+    border-radius: 50%;
+    display: flex;
+    margin: 5px;
+  }
+}
