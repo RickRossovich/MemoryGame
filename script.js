@@ -49,7 +49,6 @@ const catsArray = [
   }
 ];
 
-
 let matchboard = document.querySelector(`.container`);
 // container.innerHTML = "";
 for (let cat of catsArray) {
@@ -57,6 +56,7 @@ for (let cat of catsArray) {
   cardContainer.classList.add(`container`);
   let card = document.createElement(`div`);
   card.classList.add(`card`);
+  card.setAttribute("data-cat-id", cat.id);
   let front = document.createElement(`div`);
   front.classList.add(`front`);
   let back = document.createElement(`div`);
@@ -69,12 +69,32 @@ for (let cat of catsArray) {
 }
 //add event listener to gameboard to listen for clicks
 matchboard.addEventListener(`click`, clicked);
-//if event.target is a card, then add class ‘flipped’ to event.target
+let clickedEls = [];
 function clicked(event) {
   console.log(event);
-  if (event.target.className === `front`) {
+  if (event.target.className === `front` && clickedEls.length === 1) {
+    event.target.parentNode.classList.add(`flipped`);
+    clickedEls.push(event.target.parentNode);
+    if (
+      clickedEls[0].getAttribute("data-cat-id") ===
+      clickedEls[1].getAttribute("data-cat-id")
+    ) {
+      clickedEls[0].style.display = "none";
+      clickedEls[1].style.display = "none";
+      clickedEls = [];
+      console.log("SAME");
+    } else {
+      setTimeout(function() {
+        clickedEls[0].classList.remove("flipped");
+        clickedEls[1].classList.remove("flipped");
+        clickedEls = [];
+      }, 1000);
+
+      console.log("Not the same");
+    }
+  } else {
     //targeted the parent to effect all cards.
     event.target.parentNode.classList.add(`flipped`);
-  } if ()
-
-
+    clickedEls.push(event.target.parentNode);
+  }
+}
