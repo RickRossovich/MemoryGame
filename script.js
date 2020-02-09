@@ -1,59 +1,92 @@
+"use strict";
 const catsArray = [
   {
     id: "cat1",
-    src: "assets/butwhycat.jpg"
+    src: "assets/catpic1.jpg"
   },
   {
     id: "cat2",
-    src: "assets/greycat.jpg"
+    src: "assets/catpic2.jpg"
   },
   {
     id: "cat3",
-    src: "assets/lilbub.jpg"
+    src: "assets/catpic3.jpg"
   },
   {
     id: "cat4",
-    src: "assets/orangecat.jpg"
+    src: "assets/catpic4.jpg"
   },
   {
     id: "cat5",
-    src: "assets/screamycat.jpg"
+    src: "assets/catpic5.jpg"
   },
   {
     id: "cat6",
-    src: "assets/siamcat.jpg"
+    src: "assets/catpic6.jpg"
   },
   {
     id: "cat1",
-    src: "assets/butwhycat.jpg"
+    src: "assets/catpic1.jpg"
   },
   {
     id: "cat2",
-    src: "assets/greycat.jpg"
+    src: "assets/catpic2.jpg"
   },
   {
     id: "cat3",
-    src: "assets/lilbub.jpg"
+    src: "assets/catpic3.jpg"
   },
   {
     id: "cat4",
-    src: "assets/orangecat.jpg"
+    src: "assets/catpic4.jpg"
   },
   {
     id: "cat5",
-    src: "assets/screamycat.jpg"
+    src: "assets/catpic5.jpg"
   },
   {
     id: "cat6",
-    src: "assets/siamcat.jpg"
+    src: "assets/catpic6.jpg"
   }
 ];
 
+// let second = 0,
+//   minute = 0;
+// let timer = document.querySelector(".timer-container");
+// let interval;
+// function startTimer() {
+//   interval = setInterval(function() {
+//     timer.innerHTML = minute + "mins " + second + "secs";
+//     second++;
+//     if (second == 60) {
+//       minute++;
+//       second = 0;
+//     }
+//     if (minute == 60) {
+//       hour++;
+//       minute = 0;
+//     }
+//   }, 1000);
+// }
+// function moveCounter(){
+//     moves++;
+//     counter.innerHTML = moves;
+//     //start timer on first move
+//     if(moves == 1){
+//         second = 0;
+//         minute = 0;
+//         hour = 0;
+//         startTimer();
+//     }
+
+let gameContainer = document.querySelector(`.game-container`);
 let matchboard = document.querySelector(`.container`);
-// container.innerHTML = "";
 for (let cat of catsArray) {
+  //   //   catsArray.sort(() => Math.floor(Math.random() * catsArray.length));
+  //   catsArray.sort(() => Math.floor(Math.random() * catsArray.length));
+  //   //   catsArray.sort(() => [Math.floor(Math.random() * catsArray.length)]);
   let cardContainer = document.createElement(`section`);
-  cardContainer.classList.add(`container`);
+  cardContainer.classList.add(`card-container`);
   let card = document.createElement(`div`);
   card.classList.add(`card`);
   card.setAttribute("data-cat-id", cat.id);
@@ -65,8 +98,8 @@ for (let cat of catsArray) {
   card.append(front, back);
   cardContainer.append(card);
   matchboard.append(cardContainer);
-  // card.addEventListener(`click`, clicked);
 }
+
 //add event listener to gameboard to listen for clicks
 matchboard.addEventListener(`click`, clicked);
 let clickedEls = [];
@@ -79,9 +112,11 @@ function clicked(event) {
       clickedEls[0].getAttribute("data-cat-id") ===
       clickedEls[1].getAttribute("data-cat-id")
     ) {
-      clickedEls[0].style.display = "none";
-      clickedEls[1].style.display = "none";
-      clickedEls = [];
+      setTimeout(function() {
+        clickedEls[0].style.display = "none";
+        clickedEls[1].style.display = "none";
+        clickedEls = [];
+      }, 900);
       console.log("SAME");
     } else {
       setTimeout(function() {
@@ -98,3 +133,15 @@ function clicked(event) {
     clickedEls.push(event.target.parentNode);
   }
 }
+// let resetGame = document.querySelector(`.container`);
+// resetGame.addEventListener("click",reset)
+// function reset (event) {
+//     if (event.target.className === ".reset") {
+//         resetGame.reset();
+// }
+// (function shuffle() {
+//   cards.forEach(card => {
+//     let randomPos = Math.floor(Math.random() * 12);
+//     card.style.order = randomPos;
+//   });
+// })();

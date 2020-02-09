@@ -1,120 +1,91 @@
-/* body {
+/* MOBILE VIEW */
+body {
+  background-color: black;
   font-family: "Pacifico", cursive;
-  background-image: url("/assets/catbackground1.jpg");
+  background-image: url("assets/spacebackground3.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
-
 .page-title {
-  font-family: "Pacifico", cursive;
+  color: whitesmoke;
   text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-family: "Pacifico", cursive;
   font-size: 50px;
+  font-weight: 900;
+  text-shadow: 2px 2px;
+  text-shadow: 5px 5px purple;
+  margin: 2px 0px 0px 0px;
+  -webkit-animation: glow 1s ease-in-out infinite alternate;
+  -moz-animation: glow 1s ease-in-out infinite alternate;
+  animation: glow 1s ease-in-out infinite alternate;
 }
-.countdown-flip-container {
+@-webkit-keyframes glow {
+  from {
+    text-shadow: 0 0 10px rgb(121, 101, 235), 0 0 20px rgb(121, 101, 235),
+      0 0 30px #2b1f5fcb, 0 0 40px #2b1f5fcb, 0 0 50px #2b1f5fcb,
+      0 0 60px #2b1f5fcb, 0 0 70px #2b1f5fcb;
+  }
+  to {
+    text-shadow: 0 0 20px #fff, 0 0 30px #4500e6, 0 0 40px #4500e6,
+      0 0 50px #4500e6, 0 0 60px #4500e6, 0 0 70px #4500e6, 0 0 80px #4500e6;
+  }
+}
+.page-subtitle {
+  color: white;
+  font-size: 25px;
+  text-shadow: 3px 3px blue;
+  margin: 0px;
+  text-align: center;
+}
+.timer-container {
   width: 400px;
-  border: 1px solid black;
-  position: absolute;
-  top: -10px;
+  color: white;
   display: flex;
   justify-content: space-between;
-  font-size: 40px;
-}
-main {
-  display: flex;
-  justify-content: center;
   align-items: center;
+  font-size: 30px;
 }
-.game-container {
-    width: 850px;
-
+.countdown {
+  text-shadow: 2px 2px;
+  text-shadow: 2px 2px rgb(164, 103, 214);
+}
+.flips-info {
+  text-shadow: 2px 2px;
+  text-shadow: 2px 2px rgb(164, 103, 214);
+}
+.container {
   display: flex;
-  justify-content: center;
+  border: 3px solid rgb(185, 18, 130);
+  width: 550px;
+  height: 500px;
   align-items: center;
-  height: 100vh;
+  justify-content: space-around;
   flex-wrap: wrap;
+  flex-direction: column;
+  box-shadow: 0 0 0 5px hsl(246, 70%, 47%), 0 0 0 0.5px hsl(246, 70%, 47%);
+  background-color: rgba(93, 13, 124, 0.4);
+  border-radius: 5px;
 }
 .card-container {
-  width: 850px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-}
-.card {
-  background-color: rosybrown;
-  height: 100px;
   width: 100px;
-  border: 1px solid black;
-  border-radius: 5px;
-  display: flex;
-  margin: 5px;
-}
-
-@media screen and (min-width: 768px) {
-  body {
-    background-image: url("/assets/catbackground2.jpg");
-    background-blend-mode: overlay;
-    background-repeat: no-repeat;
-    background-size: 100% 150vh;
-  }
-
-  .page-title {
-    font-family: "Pacifico", cursive;
-    text-align: center;
-    font-size: 100px;
-    color: white;
-  }
-  .game-container {
-    position: relative;
-  }
-  .countdown-flip-container {
-    width: 600px;
-    border: 1px solid white;
-    position: absolute;
-    top: -75px;
-    display: flex;
-    justify-content: space-between;
-    font-size: 50px;
-    color: white;
-  }
-  .game-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-  }
-  .card-container {
-    width: 700px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-  }
-  .card {
-    background-color: rosybrown;
-    height: 150px;
-    width: 150px;
-    border: 1px solid black;
-    border-radius: 50%;
-    display: flex;
-    margin: 5px;
-  }
-}
-/* .card {
-  border: 1px solid black;
-  display: flex;
-  justify-content: space-between;
-  align-item: column;
-} */
-.container {
-  width: 200px;
-  height: 260px;
+  height: 100px;
   position: relative;
-  border: 1px solid #ccc;
+  border: 2px solid rgb(161, 45, 238);
   -webkit-perspective: 800px;
   -moz-perspective: 800px;
   -o-perspective: 800px;
   perspective: 800px;
+  margin: 5px;
+  border-radius: 5px;
 }
 .card {
   width: 100%;
@@ -146,10 +117,14 @@ main {
   backface-visibility: hidden;
 }
 .card .front {
-  background: red;
+  background-image: url(assets/spacecaticon.jpeg);
+  background-position: center;
+  background-size: cover;
 }
 .card .back {
-  /* background: yellow; */
+  background: blue;
+  background-position: center;
+  background-size: cover;
   -webkit-transform: rotateY(180deg);
   -moz-transform: rotateY(180deg);
   -o-transform: rotateY(180deg);
@@ -160,4 +135,101 @@ main {
   -moz-transform: rotateY(180deg);
   -o-transform: rotateY(180deg);
   transform: rotateY(180deg);
+}
+.start {
+  background-color: black;
+  color: #da9eed;
+  border-radius: 5px;
+  outline: none;
+  border: none;
+  box-shadow: 0 0 10px #da9eed;
+  padding: 4px;
+  margin: 10px;
+}
+button {
+  background-color: black;
+  color: #da9eed;
+  border-radius: 5px;
+  outline: none;
+  border: none;
+  box-shadow: 0 0 10px #da9eed;
+  padding: 4px;
+  margin: 10px;
+}
+/* DESKTOP VIEW */
+
+@media screen and (min-width: 768px) {
+  body {
+    background-image: url("assets/spacebackground5.jpg");
+  }
+  .page-title {
+    -webkit-animation: glow 1s ease-in-out infinite alternate;
+    -moz-animation: glow 1s ease-in-out infinite alternate;
+    animation: glow 1s ease-in-out infinite alternate;
+  }
+  .page-subtitle {
+    text-shadow: 3px 3px rgb(8, 148, 113);
+  }
+  @-webkit-keyframes glow {
+    from {
+      text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073,
+        0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;
+    }
+    to {
+      text-shadow: 0 0 20px #fff, 0 0 30px rgb(8, 148, 113),
+        0 0 40px rgb(8, 148, 113), 0 0 50px rgb(8, 148, 113),
+        0 0 60px rgb(8, 148, 113), 0 0 70px rgb(8, 148, 113),
+        0 0 80px rgb(8, 148, 113);
+    }
+  }
+
+  .countdown {
+    text-shadow: 3px 3px rgb(197, 83, 7);
+  }
+  .flips-info {
+    text-shadow: 3px 3px rgb(197, 83, 7);
+  }
+  .container {
+    display: flex;
+    width: 950px;
+    height: 600px;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    flex-direction: column;
+    border: none;
+    background: none;
+    box-shadow: none;
+  }
+  .card-container {
+    width: 150px;
+    height: 160px;
+    /* position: relative; */
+    border: none;
+    border: 2px solid #dadada;
+    border-radius: 50%;
+    /* outline: none;
+    border-color: #9ecaed;
+    box-shadow: 0 0 10px #9ecaed; */
+  }
+  .card .front {
+    background-image: url(assets/spacecaticon3.jpg);
+    border-radius: 50%;
+    outline: none;
+    /* border-color: #9ecaed; */
+    box-shadow: 0 0 30px #9ecaed;
+  }
+  .card .back {
+    border-radius: 50%;
+  }
+  button {
+    background-color: black;
+    color: white;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+    /* border-color: #9ecaed; */
+    box-shadow: 0 0 10px #9ecaed;
+    padding: 5px;
+  }
 }
