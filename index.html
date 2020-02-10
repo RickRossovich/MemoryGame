@@ -7,13 +7,25 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
+    <div class="win-popup-container">
+      <div class="win-popup">
+        <p>Congratulations! You won the game!</p>
+        <button onclick="location.reload();"></buttononclick>try again!</button>
+      </div>
+    </div>
+    <div class="lose-popup-container">
+      <div class="lose-popup">
+        <p>You ran out of time! </p>
+        <button onclick="location.reload();"></buttononclick>try again!</button>
+      </div>
+    </div>
       <header>
     <h1 class="page-title">El Gato Galaxy</h1>
     <p class ="page-subtitle"> - memory game -</p>
      </header>
      <div class="timer-container">
-        <div class="countdown">Time: <span id="time-remaining">60</span></div>
-        <div class="flips-info">Flips: <span id="flips">0</span></div>
+        <div class="countdown">Timer: <span id="time-remaining"></span></div>
+        <button id="start">Start Game</button>
     </div>
     <!-- <main class="game-container"> -->
       <section class="container"></section>

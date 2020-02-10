@@ -11,6 +11,48 @@ body {
   align-items: center;
   flex-direction: column;
 }
+.win-popup-container {
+  position: fixed;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+  display: none;
+}
+.win-popup {
+  width: 300px;
+  height: 125px;
+  background-color: rgba(0, 0, 0, 0.6);
+  border: 1px solid white;
+  color: white;
+  text-align: center;
+  border-radius: 5px;
+  outline: none;
+  border: none;
+  box-shadow: 0 0 10px #da9eed;
+  padding: 4px;
+  margin: 10px;
+}
+.lose-popup-container {
+  position: fixed;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+  display: none;
+}
+.lose-popup {
+  width: 300px;
+  height: 125px;
+  background-color: rgba(0, 0, 0, 0.6);
+  border: 1px solid white;
+  color: white;
+  text-align: center;
+  border-radius: 5px;
+  outline: none;
+  border: none;
+  box-shadow: 0 0 10px #da9eed;
+  padding: 4px;
+  margin: 10px;
+}
 .page-title {
   color: whitesmoke;
   text-align: center;
@@ -50,7 +92,7 @@ body {
   width: 400px;
   color: white;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   align-items: center;
   font-size: 30px;
 }
@@ -157,7 +199,6 @@ button {
   margin: 10px;
 }
 /* DESKTOP VIEW */
-
 @media screen and (min-width: 768px) {
   body {
     background-image: url("assets/spacebackground5.jpg");
@@ -182,7 +223,6 @@ button {
         0 0 80px rgb(8, 148, 113);
     }
   }
-
   .countdown {
     text-shadow: 3px 3px rgb(197, 83, 7);
   }
