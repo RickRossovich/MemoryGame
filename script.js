@@ -50,41 +50,26 @@ const catsArray = [
   }
 ];
 
-// let second = 0,
-//   minute = 0;
-// let timer = document.querySelector(".timer-container");
-// let interval;
-// function startTimer() {
-//   interval = setInterval(function() {
-//     timer.innerHTML = minute + "mins " + second + "secs";
-//     second++;
-//     if (second == 60) {
-//       minute++;
-//       second = 0;
-//     }
-//     if (minute == 60) {
-//       hour++;
-//       minute = 0;
-//     }
-//   }, 1000);
-// }
-// function moveCounter(){
-//     moves++;
-//     counter.innerHTML = moves;
-//     //start timer on first move
-//     if(moves == 1){
-//         second = 0;
-//         minute = 0;
-//         hour = 0;
-//         startTimer();
-//     }
+let matches = 0;
 
+//SHUFFLE FUNCTION
+function shuffle(array) {
+  let currentIndex = array.length,
+    temporaryValue,
+    randomIndex;
+  while (currentIndex !== 0) {
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+  return array;
+}
 let gameContainer = document.querySelector(`.game-container`);
 let matchboard = document.querySelector(`.container`);
+shuffle(catsArray);
 for (let cat of catsArray) {
-  //   //   catsArray.sort(() => Math.floor(Math.random() * catsArray.length));
-  //   catsArray.sort(() => Math.floor(Math.random() * catsArray.length));
-  //   //   catsArray.sort(() => [Math.floor(Math.random() * catsArray.length)]);
   let cardContainer = document.createElement(`section`);
   cardContainer.classList.add(`card-container`);
   let card = document.createElement(`div`);
@@ -112,6 +97,7 @@ function clicked(event) {
       clickedEls[0].getAttribute("data-cat-id") ===
       clickedEls[1].getAttribute("data-cat-id")
     ) {
+      matches++;
       setTimeout(function() {
         clickedEls[0].style.display = "none";
         clickedEls[1].style.display = "none";
@@ -133,15 +119,28 @@ function clicked(event) {
     clickedEls.push(event.target.parentNode);
   }
 }
-// let resetGame = document.querySelector(`.container`);
-// resetGame.addEventListener("click",reset)
-// function reset (event) {
-//     if (event.target.className === ".reset") {
-//         resetGame.reset();
-// }
-// (function shuffle() {
-//   cards.forEach(card => {
-//     let randomPos = Math.floor(Math.random() * 12);
-//     card.style.order = randomPos;
-//   });
-// })();
+
+let time = 60;
+let countdown = document.querySelector(".countdown");
+let clock = document.querySelector("body");
+clock.addEventListener("click", function(e) {
+  if (e.target.id === "start") {
+    //stop messing around
+    function timeout() {
+      let timer = setTimeout(function() {
+        countdown.innerText = `Timer: ${time}`;
+        if (time > 0 && matches < 6) {
+          time--;
+          console.log(time);
+        } else if (matches === 6) {
+          document.querySelector(".win-popup-container").style.display = "flex";
+        } else if (matches <= 6) {
+          document.querySelector(".lose-popup-container").style.display =
+            "flex";
+        }
+        timeout();
+      }, 1005);
+    }
+    timeout();
+  }
+});
