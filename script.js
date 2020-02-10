@@ -1,3 +1,4 @@
+
 "use strict";
 const catsArray = [
   {
@@ -49,9 +50,7 @@ const catsArray = [
     src: "assets/catpic6.jpg"
   }
 ];
-
 let matches = 0;
-
 //SHUFFLE FUNCTION
 function shuffle(array) {
   let currentIndex = array.length,
@@ -121,9 +120,6 @@ let time = 60;
 let countdown = document.querySelector(".countdown");
 // let timeCard = document.querySelector("")
 ///messing around
-
-let time = 60;
-let countdown = document.querySelector(".countdown");
 let clock = document.querySelector("body");
 clock.addEventListener("click", function(e) {
   if (e.target.id === "start") {
